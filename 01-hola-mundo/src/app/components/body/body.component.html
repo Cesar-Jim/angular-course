@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col">
+    <h1>*ngIf</h1>
+    <hr />
+    <div class="if-example">
+      <div
+        *ngIf="showElement"
+        class="card bg-light mb-3"
+        style="max-width: 100%;"
+      >
+        <div class="card-body">
+          <h5 class="card-title">{{ phrase.author }}</h5>
+          <p class="card-text">{{ phrase.msg }}</p>
+        </div>
+      </div>
+      <div class="toggle-button">
+        <button
+          (click)="showElement = !showElement"
+          class="btn btn-outline-primary btn-block"
+        >
+          Toggle
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <h1>*ngFor</h1>
+    <hr />
+    <div class="for-example">
+      <ul class="list-group">
+        <li *ngFor="let heroe of heroes; let i = index" class="list-group-item">
+          {{ i + 1 }} - {{ heroe }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
