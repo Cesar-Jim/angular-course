@@ -1,0 +1,16 @@
+<h1>Matches to: <small>{{ str }}</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast" *ngIf="heroes.length === 0">
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No matches for: {{ str }}
+        </div>
+    </div>
+</div>
+
+<div class="card-columns">
+
+    <app-hero-card [hero]="hero" [index]="hero.idx" *ngFor="let hero of heroes"></app-hero-card>
+
+</div>

@@ -1,1 +1,47 @@
+.main-container {
+    margin-top: 20px;
+}
 
+body {
+    padding-bottom: 50px;
+}
+
+.col-md-4.comic-brand {
+    text-align: center;
+}
+
+.img-logo {
+    margin-top: 15px;
+    width: 80px;
+    height: 50px;
+}
+
+
+/* Animations */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
