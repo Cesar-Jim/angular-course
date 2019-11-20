@@ -1,0 +1,173 @@
+<div class="container">
+    <br>
+    <h1>Pipes</h1>
+    <br>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Variable</th>
+                <th scope="col">Pipe</th>
+                <th scope="col"></th>
+                <th scope="col">Producto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>uppercase</td>
+                <td>&rarr;</td>
+                <td>{{ nombre | uppercase }}</td>
+            </tr>
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>lowercase</td>
+                <td>&rarr;</td>
+                <td>{{ nombre | lowercase }}</td>
+            </tr>
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>slice:3</td>
+                <td>&rarr;</td>
+                <td>{{ nombre | slice:3 }}</td>
+            </tr>
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>slice:0:3</td>
+                <td>&rarr;</td>
+                <td>{{ nombre | slice:0:3 }}</td>
+            </tr>
+            <tr>
+                <td>{{ arreglo }}</td>
+                <td>slice:1:5</td>
+                <td>&rarr;</td>
+                <td>{{ arreglo | slice:1:5 }}</td>
+            </tr>
+            <tr>
+                <td>{{ PI }}</td>
+                <td>number:'3.0-0'</td>
+                <td>&rarr;</td>
+                <td>{{ PI | number:'3.0-0' }}</td>
+            </tr>
+            <tr>
+                <td>{{ PI }}</td>
+                <td>number:'1.0-4'</td>
+                <td>&rarr;</td>
+                <td>{{ PI | number:'1.0-4' }}</td>
+            </tr>
+            <tr>
+                <td>{{ porcentaje }}</td>
+                <td>percent</td>
+                <td>&rarr;</td>
+                <td>{{ porcentaje | percent }}</td>
+            </tr>
+            <tr>
+                <td>{{ porcentaje }}</td>
+                <td>percent:'2.2'</td>
+                <td>&rarr;</td>
+                <td>{{ porcentaje | percent:'2.2' }}</td>
+            </tr>
+            <tr>
+                <td>{{ sueldo }}</td>
+                <td>currency</td>
+                <td>&rarr;</td>
+                <td>{{ sueldo | currency }}</td>
+            </tr>
+            <tr>
+                <td>{{ sueldo }}</td>
+                <td>currency:'EUR':'code'</td>
+                <td>&rarr;</td>
+                <td>{{ sueldo | currency:'EUR':'code' }}</td>
+            </tr>
+            <tr>
+                <td>{{ sueldo }}</td>
+                <td>currency:'EUR':'symbol':'5.0-0'</td>
+                <td>&rarr;</td>
+                <td>{{ sueldo | currency:'EUR':'symbol':'5.0-0' }}</td>
+            </tr>
+            <!--Currency sin simbolo:-->
+            <tr>
+                <td>{{ sueldoDos }}</td>
+                <td>number:'.2-2'</td>
+                <td>&rarr;</td>
+                <td>{{ sueldoDos | number:'.2-2' }}</td>
+            </tr>
+            <tr>
+                <td>{{ valorDePromesa }}</td>
+                <td>async</td>
+                <td>&rarr;</td>
+                <td>{{ valorDePromesa | async }}</td>
+            </tr>
+            <tr>
+                <td>{{ fecha }}</td>
+                <td>date</td>
+                <td>&rarr;</td>
+                <td>{{ fecha | date }}</td>
+            </tr>
+            <tr>
+                <td>{{ fecha }}</td>
+                <td>date:'medium'</td>
+                <td>&rarr;</td>
+                <td>{{ fecha | date:'medium' }}</td>
+            </tr>
+            <tr>
+                <td>{{ fecha }}</td>
+                <td>date:'MMMM - dd'</td>
+                <td>&rarr;</td>
+                <td>{{ fecha | date:'MMMM - dd' }}</td>
+            </tr>
+            <tr>
+                <td>{{ nombreCompleto }}</td>
+                <td>capitalizado</td>
+                <td>&rarr;</td>
+                <td>{{ nombreCompleto }}</td>
+            </tr>
+            <!--Custom Pipe-->
+            <tr>
+                <td>{{ nombreCompleto }}</td>
+                <td>capitalizado</td>
+                <td>&rarr;</td>
+                <!--Capitalizar primera palabra de cada nombre-->
+                <td>{{ nombreCompleto | capitalizado }}</td>
+            </tr>
+            <tr>
+                <td>{{ nombreCompleto }}</td>
+                <td>capitalizado</td>
+                <td>&rarr;</td>
+                <!--Capitalizar solo la primera palabra de todo el nombre-->
+                <td>{{ nombreCompleto | capitalizado:false }}</td>
+            </tr>
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>
+                    contrasena: {{ activar }}
+                    <br>
+                    <button (click)="activar = !activar" type="button" class="btn btn-outline-primary">
+                      on/off 
+                    </button>
+                </td>
+                <td>&rarr;</td>
+                <!--Capitalizar solo la primera palabra de todo el nombre-->
+                <td>{{ nombre | contrasena:activar}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <h3>Slice</h3>
+    <ul>
+        <li *ngFor="let item of arreglo | slice:5:20"> {{ item }}</li>
+    </ul>
+    <br>
+
+    <h3>JSON</h3>
+    <p>Aplicando el pipe json de la forma: "personaje | json", convierte el objeto a un JSON válido SIN formato:</p>
+    <p>{{ personaje | json }}</p>
+    <br>
+    <p>Aplicando el pipe json de la forma: "personaje | json" con uso del tag pre (bootstrap), el objeto se convierte a un JSON válido CON formato:</p>
+    <pre>
+        <p>{{ personaje | json }}</p>
+    </pre>
+
+
+</div>
