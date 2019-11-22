@@ -1,0 +1,18 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+    <h3>Error</h3>
+    <p>
+        {{ mensajeError }}
+    </p>
+</div>
+
+<app-tarjetas [items]="nuevasCanciones"></app-tarjetas>
+
+
+<!--Ejercicio para cargar paises de "restcountries.eu"-->
+<!-- <ul>
+    <li *ngFor="let pais of paises">
+        Nombre: {{ pais.name }} (Pob. {{ pais.population | number }})
+    </li>
+</ul> -->
