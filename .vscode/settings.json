@@ -1,10 +1,5 @@
 {
-  "cSpell.ignoreWords": [
-    "angular",
-    "browser",
-    "build",
-    "devkit"
-  ],
+  "cSpell.ignoreWords": ["angular", "browser", "build", "devkit"],
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "prettier.jsxSingleQuote": true,
