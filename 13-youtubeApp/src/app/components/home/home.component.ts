@@ -11,6 +11,7 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   videos: any[] = [];
   videoSel: any;
+
   constructor(public _yts: YoutubeService) {
     this._yts.getVideos().subscribe(videos => {
       console.log(videos);
@@ -20,8 +21,21 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
+  cargarMas() {
+    this._yts.getVideos().subscribe(videos => {
+      console.log("viejo array: ", this.videos);
+      this.videos.push.apply(this.videos, videos);
+      console.log("nuevo array: ", this.videos);
+    });
+  }
+
   verVideo(video: any) {
     this.videoSel = video;
     $("#myModal").modal();
+  }
+
+  cerrarModal() {
+    this.videoSel = null;
+    $("#myModal").modal("hide");
   }
 }

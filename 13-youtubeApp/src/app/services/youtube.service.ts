@@ -8,8 +8,8 @@ import { map } from "rxjs/operators";
 export class YoutubeService {
   private youtubeUrl: string = "https://www.googleapis.com/youtube/v3";
   private apikey: string = "AIzaSyALbcUX59_wA3NtUi_cFCzhE3tAd5QqXb4";
-  private playlist: string = "UUXxg0QcUky0d0C20Ua35dyQ";
-  private nextPageToken: string = "";
+  private playlist: string = "PLEB_RAgs9nEYm2VomgsKUGjiqyfIgN9TL";
+  private nextPageToken = "";
 
   constructor(public http: HttpClient) {}
 
@@ -17,15 +17,16 @@ export class YoutubeService {
     let url = `${this.youtubeUrl}/playlistItems`;
     let parametros = new HttpParams()
       .set("part", "snippet")
-      .set("maxResults", "10")
+      .set("maxResults", "2")
       .set("playlistId", this.playlist)
-      .set("key", this.apikey);
+      .set("key", this.apikey)
+      .set("pageToken", this.nextPageToken ? this.nextPageToken : "");
 
     return this.http.get(url, { params: parametros }).pipe(
       map(res => {
         console.log(res);
         this.nextPageToken = res["nextPageToken"];
-        console.log(this.nextPageToken);
+        console.log("nextPage ", this.nextPageToken);
 
         let videos: any[] = [];
 
